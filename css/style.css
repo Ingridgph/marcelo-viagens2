@@ -71,9 +71,9 @@ ul { list-style: none; }
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  padding: 0.75rem 1.625rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 0.8rem 1.75rem;
   border-radius: var(--radius-pill);
   border: 2px solid transparent;
   cursor: pointer;
@@ -123,7 +123,7 @@ ul { list-style: none; }
 }
 .header__logo {
   font-family: var(--font-heading);
-  font-size: var(--text-lg);
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--white);
   letter-spacing: -0.01em;
@@ -132,17 +132,24 @@ ul { list-style: none; }
 .header__nav {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 .header__nav a {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.90);
   transition: color var(--transition);
+  padding: 0.25rem 0.2rem;
 }
 .header__nav a:hover { color: var(--amber); }
 .header__nav-cta { display: none; }
-.header__cta { display: flex; align-items: center; gap: var(--space-sm); }
+.header__cta { display: flex; align-items: center; }
+.header__cta .btn {
+  font-size: 1.15rem;
+  font-weight: 800;
+  padding: 0.85rem 1.85rem;
+  letter-spacing: 0.02em;
+}
 .header__toggle {
   display: none;
   flex-direction: column;
@@ -348,7 +355,7 @@ ul { list-style: none; }
 
 /* ─── RESPONSIVIDADE ─── */
 @media (max-width: 1024px) {
-  .header__nav { gap: var(--space-sm); }
+  .header__nav { gap: var(--space-md); }
   .services__grid, .gallery__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -358,7 +365,6 @@ ul { list-style: none; }
   .hero, .section { padding-block: var(--space-lg); }
   .header__nav, .header__cta { display: none; }
   .header__toggle { display: flex; }
-  .header__nav-cta { display: inline-flex; width: 100%; justify-content: center; margin-top: var(--space-xs); }
   .header__nav.is-open {
     display: flex;
     flex-direction: column;
@@ -373,6 +379,8 @@ ul { list-style: none; }
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow: var(--shadow);
   }
+  .header__nav.is-open a { font-size: 1.15rem; font-weight: 600; color: var(--white); }
+  .header__nav-cta { display: inline-flex; width: 100%; justify-content: center; font-size: 1.15rem; font-weight: 800; padding: 0.9rem; margin-top: var(--space-xs); }
   .hero__inner, .about__inner { grid-template-columns: 1fr; gap: var(--space-lg); }
   .services__grid { grid-template-columns: 1fr; }
   .gallery__grid { grid-auto-rows: 160px; }
