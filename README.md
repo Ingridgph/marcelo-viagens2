@@ -57,7 +57,6 @@ marcelo-viagens/
 |---|---|---|
 | `--navy` | `#101a27` | Fundo escuro, textos em destaque |
 | `--navy-deep` | `#0a111b` | Fundo do header e footer |
-| `--blue` | `#1b3045` | Elementos secundários escuros |
 | `--ink` | `#17222d` | Cor principal do texto |
 | `--muted` | `#687581` | Textos secundários e legendas |
 | `--cream` | `#f6f2eb` | Fundo de seções alternadas |
