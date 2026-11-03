@@ -3,6 +3,62 @@
 // Funcionalidades e interações do site
 // ============================================================
 
+// ─── Hero: efeito de digitação ────────────────────────────
+const typingEl = document.getElementById('hero-typing');
+
+if (typingEl) {
+  const phrases = [
+    'Viajem com conforto',
+    'Viagens saindo de Palmas',
+    'Faça seu orçamento',
+  ];
+
+  const TYPE_MIN  = 55;   // ms por caractere ao digitar
+  const TYPE_MAX  = 110;
+  const DELETE_MS = 35;   // ms por caractere ao apagar
+  const HOLD_MS   = 1800; // pausa com a frase completa
+  const GAP_MS    = 500;  // pausa antes da próxima frase
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion) {
+    typingEl.textContent = phrases[0];
+  } else {
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const tick = () => {
+      const phrase = phrases[phraseIndex];
+
+      if (!deleting) {
+        charIndex++;
+        typingEl.textContent = phrase.slice(0, charIndex);
+
+        if (charIndex === phrase.length) {
+          deleting = true;
+          setTimeout(tick, HOLD_MS);
+          return;
+        }
+        setTimeout(tick, TYPE_MIN + Math.random() * (TYPE_MAX - TYPE_MIN));
+      } else {
+        charIndex--;
+        typingEl.textContent = phrase.slice(0, charIndex);
+
+        if (charIndex === 0) {
+          deleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length;
+          setTimeout(tick, GAP_MS);
+          return;
+        }
+        setTimeout(tick, DELETE_MS);
+      }
+    };
+
+    setTimeout(tick, 600);
+  }
+}
+
 // ─── Ano dinâmico no footer ───────────────────────────────
 const footerYear = document.getElementById('footer-year');
 if (footerYear) {
