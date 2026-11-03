@@ -88,9 +88,10 @@ select,
   align-items: center;
   padding-block: var(--space-xl);
 }
-.section--alt {
-  background-color: var(--cream);
-}
+.section--blue { background-color: var(--navy); color: var(--white); }
+.section--blue .section__label { color: var(--amber); }
+.section--blue .section__title { color: var(--white); }
+.section--blue .section__subtitle { color: rgba(255, 255, 255, 0.72); }
 .section__label {
   display: inline-block;
   font-size: var(--text-xs);
