@@ -9,7 +9,7 @@
     />
     <title>Marcelo Viagens — Palmas, TO</title>
 
-    <!-- Fontes: Google Fonts -->
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,16 +18,14 @@
     />
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="css/variables.css?v=10" />
-    <link rel="stylesheet" href="css/style.css?v=10" />
+    <link rel="stylesheet" href="css/variables.css?v=51" />
+    <link rel="stylesheet" href="css/style.css?v=51" />
   </head>
   <body>
-    <!-- ═══════════════════════════════════════
-       HEADER
-  ═══════════════════════════════════════ -->
+    <!-- HEADER -->
     <header class="header">
       <div class="container header__inner">
-        <a href="#inicio" class="header__logo"> Marcelo<span>Viagens</span> </a>
+        <a href="#inicio" class="header__logo">Marcelo<span>Viagens</span></a>
 
         <nav class="header__nav" id="main-nav" aria-label="Navegação principal">
           <a href="#inicio">Início</a>
@@ -35,9 +33,9 @@
           <a href="#galeria">Galeria</a>
           <a href="#sobre">Sobre</a>
           <a href="#contato">Contato</a>
-          <a href="#contato" class="btn btn--primary header__nav-cta"
-            >Solicitar orçamento</a
-          >
+          <a href="#contato" class="btn btn--primary header__nav-cta">
+            Solicitar orçamento
+          </a>
         </nav>
 
         <div class="header__cta">
@@ -47,8 +45,11 @@
         <button
           class="header__toggle"
           id="menu-toggle"
+          type="button"
           aria-label="Abrir menu de navegação"
           aria-expanded="false"
+          aria-haspopup="true"
+          aria-controls="main-nav"
         >
           <span></span>
           <span></span>
@@ -57,190 +58,302 @@
       </div>
     </header>
 
-    <!-- ═══════════════════════════════════════
-       HERO
-  ═══════════════════════════════════════ -->
-    <section class="hero" id="inicio">
-      <div class="container hero__inner">
-        <div class="hero__content">
-          <h1 class="hero__title">
-            Sua próxima viagem
-            <br />
-            começa <em>aqui</em>
-          </h1>
+    <main>
+      <!-- HERO -->
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <div class="container hero__inner">
+          <div class="hero__content">
+            <h1 class="hero__title" id="hero-title">
+              Sua próxima viagem<br />
+              começa <em>aqui</em>
+            </h1>
 
-          <p class="hero__typing">
-            <span id="hero-typing"></span
-            ><span class="hero__cursor" aria-hidden="true"></span>
-            <span class="sr-only"
-              >Viajem com conforto. Viagens saindo de Palmas. Faça seu
-              orçamento.</span
-            >
-          </p>
+            <p class="hero__typing" aria-hidden="true">
+              <span id="hero-typing"></span><span
+                class="hero__cursor"
+                aria-hidden="true"
+              ></span>
+            </p>
 
-          <div class="hero__actions">
-            <a href="#contato" class="btn btn--primary">Solicitar orçamento</a>
-            <a href="#servicos" class="btn btn--outline">Conhecer serviços</a>
+            <div class="hero__actions">
+              <a href="#contato" class="btn btn--primary">
+                Solicitar orçamento
+              </a>
+              <a href="#servicos" class="btn btn--outline">Conhecer serviços</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ═══════════════════════════════════════
-       SERVIÇOS
-  ═══════════════════════════════════════ -->
-    <section class="section" id="servicos" aria-labelledby="servicos-title">
-      <div class="container">
-        <span class="section__label">O que oferecemos</span>
-        <h2 class="section__title" id="servicos-title">Nossos serviços</h2>
-        <p class="section__subtitle">
-          Soluções de transporte para grupos, eventos e passeios — com
-          segurança, pontualidade e atendimento personalizado.
-        </p>
-
-        <div class="services__grid">
-          <article class="service-card">
-            <div class="service-card__icon" aria-hidden="true">🚌</div>
-            <h3 class="service-card__title">Fretamento</h3>
-            <p class="service-card__text">
-              Van disponível para fretamentos avulsos e contínuos, atendendo
-              empresas, grupos escolares, eventos e muito mais.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-card__icon" aria-hidden="true">🗺️</div>
-            <h3 class="service-card__title">Turismo regional</h3>
-            <p class="service-card__text">
-              Conheça as belezas naturais do Tocantins e região com passeios
-              guiados e roteiros personalizados.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <div class="service-card__icon" aria-hidden="true">👥</div>
-            <h3 class="service-card__title">Viagens em grupo</h3>
-            <p class="service-card__text">
-              Excursões e pacotes para grupos, com conforto, organização e
-              saídas programadas de Palmas - TO.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-       GALERIA
-  ═══════════════════════════════════════ -->
-    <section
-      class="section section--alt"
-      id="galeria"
-      aria-labelledby="galeria-title"
-    >
-      <div class="container">
-        <span class="section__label">Momentos e destinos</span>
-        <h2 class="section__title" id="galeria-title">Galeria de fotos</h2>
-        <p class="section__subtitle">
-          Veja alguns registros das nossas viagens e da nossa van. Em breve,
-          mais fotos dos nossos destinos.
-        </p>
-
-        <div class="gallery__grid">
-          <div
-            class="gallery__item"
-            aria-label="Foto 1 — aguardando imagem"
-          ></div>
-          <div
-            class="gallery__item"
-            aria-label="Foto 2 — aguardando imagem"
-          ></div>
-          <div
-            class="gallery__item"
-            aria-label="Foto 3 — aguardando imagem"
-          ></div>
-          <div
-            class="gallery__item"
-            aria-label="Foto 4 — aguardando imagem"
-          ></div>
-          <div
-            class="gallery__item"
-            aria-label="Foto 5 — aguardando imagem"
-          ></div>
-          <div
-            class="gallery__item"
-            aria-label="Foto 6 — aguardando imagem"
-          ></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════
-       SOBRE
-  ═══════════════════════════════════════ -->
-    <section class="section" id="sobre" aria-labelledby="sobre-title">
-      <div class="container about__inner">
-        <div class="about__image"></div>
-
-        <div class="about__content">
-          <span class="section__label">Quem somos</span>
-          <h2 class="section__title" id="sobre-title">
-            Sobre a Marcelo Viagens
-          </h2>
+      <!-- SERVIÇOS -->
+      <section class="section" id="servicos" aria-labelledby="servicos-title">
+        <div class="container">
+          <span class="section__label">O que oferecemos</span>
+          <h2 class="section__title" id="servicos-title">Nossos serviços</h2>
           <p class="section__subtitle">
-            Informações sobre a empresa serão adicionadas aqui — trajetória,
-            valores, diferenciais e compromisso com os clientes.
+            Soluções de transporte para grupos, eventos e passeios — com
+            segurança, pontualidade e atendimento personalizado.
           </p>
 
-          <div class="about__stats">
-            <div>
-              <p class="stat__number">—</p>
-              <p class="stat__label">Anos de experiência</p>
-            </div>
-            <div>
-              <p class="stat__number">—</p>
-              <p class="stat__label">Viagens realizadas</p>
-            </div>
-            <div>
-              <p class="stat__number">—</p>
-              <p class="stat__label">Clientes satisfeitos</p>
-            </div>
+          <div
+            class="services__grid services--stack"
+            id="services-carousel"
+            role="region"
+            aria-roledescription="carrossel"
+            aria-label="Serviços da Marcelo Viagens"
+            tabindex="0"
+          >
+            <article class="service-card">
+              <span class="service-card__number" aria-hidden="true">01</span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Fretamento</h3>
+                <p class="service-card__text">
+                  Transporte exclusivo para empresas, grupos, eventos e ocasiões
+                  especiais.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <span class="service-card__number" aria-hidden="true">02</span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Turismo e excursões</h3>
+                <p class="service-card__text">
+                  Viagens em grupo para conhecer novos destinos, com conforto
+                  durante todo o percurso.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <span class="service-card__number" aria-hidden="true">03</span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Viagens particulares</h3>
+                <p class="service-card__text">
+                  Transporte personalizado para famílias, amigos e grupos que
+                  desejam viajar juntos.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <span class="service-card__number" aria-hidden="true">04</span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Turismo regional</h3>
+                <p class="service-card__text">
+                  Viagens por Araguaína, Bico do Papagaio, Gurupi e cidades-polo
+                  do Jalapão, conforme as condições da estrada.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <span class="service-card__number" aria-hidden="true">05</span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Transfers e deslocamentos</h3>
+                <p class="service-card__text">
+                  Transporte para aeroportos, compromissos, eventos e viagens de
+                  ida e volta.
+                </p>
+              </div>
+            </article>
+
+            <article class="service-card">
+              <span class="service-card__number" aria-hidden="true">06</span>
+              <div class="service-card__body">
+                <h3 class="service-card__title">Eventos e empresas</h3>
+                <p class="service-card__text">
+                  Transporte para eventos corporativos, equipes e grupos
+                  empresariais.
+                </p>
+              </div>
+            </article>
           </div>
 
-          <a href="#contato" class="btn btn--dark">Fale conosco</a>
+          <div
+            class="services__dots"
+            role="group"
+            aria-label="Escolher grupo de serviços"
+          ></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ═══════════════════════════════════════
-       CONTATO
-  ═══════════════════════════════════════ -->
-    <section
-      class="section contact"
-      id="contato"
-      aria-labelledby="contato-title"
-    >
-      <div class="container contact__inner">
-        <span class="section__label">Fale com a gente</span>
-        <h2 class="contact__title" id="contato-title">Pronto para viajar?</h2>
-        <p class="contact__subtitle">
-          Entre em contato pelo WhatsApp e tire todas as suas dúvidas. Atendemos
-          com rapidez e atenção.
-        </p>
+      <!-- GALERIA -->
+      <section
+        class="section section--blue"
+        id="galeria"
+        aria-labelledby="galeria-title"
+      >
+        <div class="container">
+          <span class="section__label">Detalhes da van</span>
+          <h2 class="section__title" id="galeria-title">Galeria de fotos</h2>
 
-        <a
-          href="https://wa.me/556300000000?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20viagens!"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn btn--primary"
-        >
-          💬 Chamar no WhatsApp
-        </a>
-      </div>
-    </section>
+          <div
+            class="gallery gallery--carousel"
+            id="gallery-carousel"
+            role="region"
+            aria-roledescription="carrossel"
+            aria-label="Fotos da van da Marcelo Viagens"
+            tabindex="0"
+          >
+            <button
+              class="gallery__nav gallery__nav--prev"
+              type="button"
+              aria-label="Foto anterior"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M15 5l-7 7 7 7"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
 
-    <!-- ═══════════════════════════════════════
-       FOOTER
-  ═══════════════════════════════════════ -->
+            <ul class="gallery__track">
+              <li class="gallery__slide">
+                <figure class="gallery__item">
+                  <img
+                    src="assets/images/van-frente.webp"
+                    alt="Frente da van da Marcelo Viagens"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </li>
+              <li class="gallery__slide">
+                <figure class="gallery__item">
+                  <img
+                    src="assets/images/interior-bancos.webp"
+                    alt="Bancos reclináveis no interior da van"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </li>
+              <li class="gallery__slide">
+                <figure class="gallery__item">
+                  <img
+                    src="assets/images/interior-degraus.webp"
+                    alt="Degraus de acesso e piso do interior da van"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </li>
+              <li class="gallery__slide">
+                <figure class="gallery__item">
+                  <img
+                    src="assets/images/interior-iluminacao.webp"
+                    alt="Iluminação interna em LED da van"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </li>
+              <li class="gallery__slide">
+                <figure class="gallery__item">
+                  <img
+                    src="assets/images/espaco-traseiro.webp"
+                    alt="Espaço traseiro da van com bagageiro"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              </li>
+            </ul>
+
+            <button
+              class="gallery__nav gallery__nav--next"
+              type="button"
+              aria-label="Próxima foto"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path
+                  d="M9 5l7 7-7 7"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+
+            <div
+              class="gallery__dots"
+              role="group"
+              aria-label="Escolher foto"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOBRE -->
+      <section class="section" id="sobre" aria-labelledby="sobre-title">
+        <div class="container about__inner">
+          <div class="about__image" aria-hidden="true"></div>
+
+          <div class="about__content">
+            <span class="section__label">Quem somos</span>
+            <h2 class="section__title" id="sobre-title">
+              Sobre a Marcelo Viagens
+            </h2>
+            <p class="section__subtitle">
+              Informações sobre a empresa serão adicionadas aqui — trajetória,
+              valores, diferenciais e compromisso com os clientes.
+            </p>
+
+            <div class="about__stats">
+              <div>
+                <p class="stat__number">—</p>
+                <p class="stat__label">Anos de experiência</p>
+              </div>
+              <div>
+                <p class="stat__number">—</p>
+                <p class="stat__label">Viagens realizadas</p>
+              </div>
+              <div>
+                <p class="stat__number">—</p>
+                <p class="stat__label">Clientes satisfeitos</p>
+              </div>
+            </div>
+
+            <a href="#contato" class="btn btn--dark">Fale conosco</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTATO -->
+      <section
+        class="section contact"
+        id="contato"
+        aria-labelledby="contato-title"
+      >
+        <div class="container contact__inner">
+          <span class="section__label">Fale com a gente</span>
+          <h2 class="contact__title" id="contato-title">Pronto para viajar?</h2>
+          <p class="contact__subtitle">
+            Entre em contato pelo WhatsApp e tire todas as suas dúvidas.
+            Atendemos com rapidez e atenção.
+          </p>
+
+          <a
+            href="https://wa.me/556300000000?text=Ol%C3%A1%2C%20gostaria%20de%20saber%20mais%20sobre%20as%20viagens!"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--primary"
+          >
+            💬 Chamar no WhatsApp
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container footer__inner">
         <span class="footer__logo">Marcelo<span>Viagens</span></span>
@@ -252,7 +365,6 @@
       </div>
     </footer>
 
-    <!-- Script -->
-    <script src="js/script.js?v=10"></script>
+    <script src="js/script.js?v=51"></script>
   </body>
 </html>
