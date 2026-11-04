@@ -3,6 +3,19 @@
 // Funcionalidades e interações do site
 // ============================================================
 
+// ─── Utilidades de layout ─────────────────────────────────
+// Lê uma variável CSS numérica (ex.: --header-height) em px
+const cssNumber = (el, prop, fallback) => {
+  const raw = getComputedStyle(el).getPropertyValue(prop);
+  const value = parseFloat(raw);
+  return Number.isFinite(value) ? value : fallback;
+};
+
+// Altura visível da página descontando o header fixo
+const viewportWithoutHeader = () =>
+  (window.innerHeight || 640) -
+  cssNumber(document.documentElement, "--header-height", 70);
+
 // ─── Hero: efeito de digitação ────────────────────────────
 const typingEl = document.getElementById("hero-typing");
 
@@ -176,12 +189,10 @@ if (carousel) {
       const diff = mod(i - current, total);
       slide.classList.remove("is-center", "is-left", "is-right", "is-hidden");
       slide.classList.remove("is-stack-1", "is-stack-2");
-      slide.style.removeProperty("--stack-index");
 
       if (isMobile) {
         if (diff < STACK_SIZE) {
           slide.classList.add(`is-stack-${diff + 1}`);
-          slide.style.setProperty("--stack-index", diff);
         } else {
           slide.classList.add("is-hidden");
         }
@@ -212,24 +223,12 @@ if (carousel) {
     // No celular, mede a altura da foto da frente para posicionar
     // a segunda foto e as setas logo abaixo dela.
     if (isMobile) {
-      // altura das fotos = espaço da tela menos menu, textos,
-      // legenda e bolinhas — as duas fotos ficam coladas
-      const viewport = window.innerHeight || 640;
-      const headerH =
-        parseFloat(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--header-height",
-          ),
-        ) || 70;
-      const gap = parseFloat(
-        getComputedStyle(carousel).getPropertyValue("--stack-gap") || "6",
-      );
-      const reserved = 190; // textos + legenda + bolinhas + respiros
-      const available = viewport - headerH - reserved;
-      const photoHeight = Math.max(
-        110,
-        Math.floor((available - (gap || 6)) / 2),
-      );
+      // altura das fotos = espaço da tela menos textos e bolinhas;
+      // as duas fotos ficam coladas (vão de --stack-gap)
+      const gap = cssNumber(carousel, "--stack-gap", 6);
+      const reserved = 190; // textos + bolinhas + respiros
+      const available = viewportWithoutHeader() - reserved;
+      const photoHeight = Math.max(110, Math.floor((available - gap) / 2));
       carousel.style.setProperty("--gallery-stack-height", `${photoHeight}px`);
     } else {
       carousel.style.removeProperty("--gallery-stack-height");
@@ -262,13 +261,10 @@ if (carousel) {
     }, AUTOPLAY_MS);
   };
 
-  const startAutoplay = () => {
-    scheduleAutoplay();
-  };
-
-  const restartAutoplay = () => {
-    scheduleAutoplay();
-  };
+  // startAutoplay e restartAutoplay têm o mesmo efeito:
+  // reiniciam a contagem do próximo giro.
+  const startAutoplay = scheduleAutoplay;
+  const restartAutoplay = scheduleAutoplay;
 
   if (prevBtn)
     prevBtn.addEventListener("click", () => {
@@ -352,8 +348,6 @@ if (carousel) {
 
   render();
   startAutoplay();
-  render();
-  startAutoplay();
 
   // Remede quando as imagens terminam de carregar ou a tela muda de tamanho
   const remeasure = () => {
@@ -406,16 +400,9 @@ if (servicesCarousel) {
   const measureServiceHeight = () => {
     if (!mobileServices.matches) return;
 
-    const viewport = window.innerHeight || 640;
-    const headerH =
-      parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--header-height",
-        ),
-      ) || 70;
     const gap = 10; // igual ao --svc-gap do CSS
     const reserved = 210; // textos da seção + bolinhas + respiros
-    const available = viewport - headerH - reserved;
+    const available = viewportWithoutHeader() - reserved;
     const cardHeight = Math.floor((available - 2 * gap) / 3);
 
     // altura confortável: entre 100px e 165px
