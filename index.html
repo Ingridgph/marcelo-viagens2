@@ -18,8 +18,8 @@
     />
 
     <!-- Estilos -->
-    <link rel="stylesheet" href="css/variables.css?v=49" />
-    <link rel="stylesheet" href="css/style.css?v=49" />
+    <link rel="stylesheet" href="css/variables.css?v=51" />
+    <link rel="stylesheet" href="css/style.css?v=51" />
   </head>
   <body>
     <!-- HEADER -->
@@ -48,6 +48,7 @@
           type="button"
           aria-label="Abrir menu de navegação"
           aria-expanded="false"
+          aria-haspopup="true"
           aria-controls="main-nav"
         >
           <span></span>
@@ -67,7 +68,7 @@
               começa <em>aqui</em>
             </h1>
 
-            <p class="hero__typing">
+            <p class="hero__typing" aria-hidden="true">
               <span id="hero-typing"></span><span
                 class="hero__cursor"
                 aria-hidden="true"
@@ -100,6 +101,7 @@
             role="region"
             aria-roledescription="carrossel"
             aria-label="Serviços da Marcelo Viagens"
+            tabindex="0"
           >
             <article class="service-card">
               <span class="service-card__number" aria-hidden="true">01</span>
@@ -170,9 +172,8 @@
 
           <div
             class="services__dots"
-            role="tablist"
+            role="group"
             aria-label="Escolher grupo de serviços"
-            tabindex="0"
           ></div>
         </div>
       </section>
@@ -193,6 +194,7 @@
             role="region"
             aria-roledescription="carrossel"
             aria-label="Fotos da van da Marcelo Viagens"
+            tabindex="0"
           >
             <button
               class="gallery__nav gallery__nav--prev"
@@ -215,7 +217,7 @@
               <li class="gallery__slide">
                 <figure class="gallery__item">
                   <img
-                    src="assets/images/van-frente.jpg"
+                    src="assets/images/van-frente.webp"
                     alt="Frente da van da Marcelo Viagens"
                     loading="lazy"
                     decoding="async"
@@ -225,7 +227,7 @@
               <li class="gallery__slide">
                 <figure class="gallery__item">
                   <img
-                    src="assets/images/interior-bancos.jpg"
+                    src="assets/images/interior-bancos.webp"
                     alt="Bancos reclináveis no interior da van"
                     loading="lazy"
                     decoding="async"
@@ -235,7 +237,7 @@
               <li class="gallery__slide">
                 <figure class="gallery__item">
                   <img
-                    src="assets/images/interior-degraus.jpg"
+                    src="assets/images/interior-degraus.webp"
                     alt="Degraus de acesso e piso do interior da van"
                     loading="lazy"
                     decoding="async"
@@ -245,7 +247,7 @@
               <li class="gallery__slide">
                 <figure class="gallery__item">
                   <img
-                    src="assets/images/interior-iluminacao.jpg"
+                    src="assets/images/interior-iluminacao.webp"
                     alt="Iluminação interna em LED da van"
                     loading="lazy"
                     decoding="async"
@@ -255,7 +257,7 @@
               <li class="gallery__slide">
                 <figure class="gallery__item">
                   <img
-                    src="assets/images/espaco-traseiro.jpg"
+                    src="assets/images/espaco-traseiro.webp"
                     alt="Espaço traseiro da van com bagageiro"
                     loading="lazy"
                     decoding="async"
@@ -283,9 +285,8 @@
 
             <div
               class="gallery__dots"
-              role="tablist"
+              role="group"
               aria-label="Escolher foto"
-              tabindex="0"
             ></div>
           </div>
         </div>
@@ -364,6 +365,6 @@
       </div>
     </footer>
 
-    <script src="js/script.js?v=49"></script>
+    <script src="js/script.js?v=51"></script>
   </body>
 </html>

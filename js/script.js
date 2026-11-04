@@ -89,12 +89,17 @@ if (menuToggle && mainNav) {
   const closeMenu = () => {
     mainNav.classList.remove("is-open");
     menuToggle.setAttribute("aria-expanded", "false");
+    menuToggle.setAttribute("aria-label", "Abrir menu de navegação");
   };
 
   menuToggle.addEventListener("click", (e) => {
     e.stopPropagation();
     const isOpen = mainNav.classList.toggle("is-open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Fechar menu de navegação" : "Abrir menu de navegação",
+    );
   });
 
   // Fecha o menu ao clicar em qualquer link de navegação
@@ -161,6 +166,13 @@ if (carousel) {
   let autoTimer = null;
   const AUTOPLAY_MS = 5000;
 
+  // Região viva: avisa leitores de tela qual foto está visível
+  const statusEl = document.createElement("p");
+  statusEl.className = "gallery__status";
+  statusEl.setAttribute("aria-live", "polite");
+  statusEl.setAttribute("aria-atomic", "true");
+  carousel.appendChild(statusEl);
+
   const mod = (n, len) => ((n % len) + len) % len;
 
   // Cria as bolinhas de navegação
@@ -217,6 +229,14 @@ if (carousel) {
       dot.classList.toggle("is-active", i === current);
       dot.setAttribute("aria-current", i === current ? "true" : "false");
     });
+
+    // anúncio acessível da foto atual
+    if (statusEl) {
+      const img = slides[current].querySelector("img");
+      statusEl.textContent = `Foto ${current + 1} de ${total}${
+        img && img.alt ? `: ${img.alt}` : ""
+      }`;
+    }
 
     carousel.classList.toggle("is-stack", isMobile);
 
@@ -372,6 +392,16 @@ if (servicesCarousel) {
 
   let svcStart = 0; // índice do primeiro card do grupo visível
 
+  // Região viva: anuncia o grupo de serviços visível
+  const svcStatus = document.createElement("p");
+  svcStatus.className = "services__status";
+  svcStatus.setAttribute("aria-live", "polite");
+  svcStatus.setAttribute("aria-atomic", "true");
+  if (servicesDots) servicesDots.parentNode.insertBefore(
+    svcStatus,
+    servicesDots.nextSibling,
+  );
+
   const modIndex = (n, len) => ((n % len) + len) % len;
 
   // Bolinhas: uma por grupo de 3 cards
@@ -449,6 +479,10 @@ if (servicesCarousel) {
       dot.classList.toggle("is-active", i === activeGroup);
       dot.setAttribute("aria-current", i === activeGroup ? "true" : "false");
     });
+
+    const first = activeGroup * PER_VIEW + 1;
+    const last = Math.min(first + PER_VIEW - 1, cards.length);
+    svcStatus.textContent = `Serviços ${first} a ${last} de ${cards.length}`;
 
     measureServiceHeight();
   };
