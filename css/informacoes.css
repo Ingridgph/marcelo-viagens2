@@ -1,0 +1,159 @@
+/* ============================================================
+   INFORMACOES.CSS — Marcelo Viagens
+   Seção "Informações importantes": cards e chamada para orçamento.
+   ============================================================ */
+
+/* ═══════════════════════════════════════
+   8. INFORMAÇÕES
+═══════════════════════════════════════ */
+.info {
+  background-color: var(--navy-deep);
+}
+
+.info__header {
+  max-width: 640px;
+  margin-bottom: var(--space-lg);
+}
+
+.info__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.info-card {
+  padding: 1.75rem;
+  background-color: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: var(--radius);
+  transition:
+    transform var(--transition),
+    background-color var(--transition),
+    border-color var(--transition);
+}
+
+.info-card:hover {
+  transform: translateY(-4px);
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: rgba(253, 191, 1, 0.55);
+}
+
+.info-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 1rem;
+  background-color: rgba(253, 191, 1, 0.12);
+  border-radius: 12px;
+  color: var(--amber);
+}
+
+.info-card__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.info-card__title {
+  margin-bottom: 0.4rem;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+}
+
+.info-card__text {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Destaque final — chamada para o orçamento */
+.info__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  padding: 1.75rem 2rem;
+  background-color: var(--amber);
+  border-radius: var(--radius);
+  color: var(--navy-deep);
+}
+
+.info__cta-title {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.info__cta-text {
+  margin-top: 0.3rem;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: rgba(10, 17, 27, 0.78);
+}
+
+.info__cta .btn {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  /* Informações */
+  .info__header {
+    margin-bottom: var(--space-md);
+  }
+
+  .info__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .info-card {
+    padding: 0.9rem;
+  }
+
+  .info-card__icon {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0.6rem;
+    border-radius: 9px;
+  }
+
+  .info-card__icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .info-card__title {
+    font-size: 0.92rem;
+  }
+
+  .info-card__text {
+    font-size: 0.76rem;
+    line-height: 1.4;
+  }
+
+  .info__cta {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .info__cta-title {
+    font-size: 1.1rem;
+  }
+
+  .info__cta-text {
+    display: none;
+  }
+
+  .info__cta .btn {
+    justify-content: center;
+    width: 100%;
+  }
+}

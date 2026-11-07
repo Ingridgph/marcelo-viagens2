@@ -35,7 +35,14 @@ marcelo-viagens/
 │
 ├── css/
 │   ├── variables.css       → Variáveis globais (cores, fontes, espaçamentos)
-│   └── style.css           → Estilos de todas as seções
+│   ├── main.css            → Reset, base, estrutura, botões e responsividade global
+│   ├── nav.css             → Header e navegação
+│   ├── hero.css            → Hero / seção inicial
+│   ├── servicos.css        → Serviços e carrossel de cards
+│   ├── galeria.css         → Galeria / carrossel de fotos
+│   ├── informacoes.css     → Seção "Sobre" / informações
+│   ├── contato.css         → Seção de contato
+│   └── footer.css          → Rodapé
 │
 ├── js/
 │   └── script.js           → Interações e funcionalidades
@@ -62,8 +69,8 @@ marcelo-viagens/
 | `--cream` | `#f6f2eb` | Fundo de seções alternadas |
 | `--paper` | `#fbfaf7` | Fundo principal da página |
 | `--line` | `#e5e8e7` | Bordas e divisores |
-| `--amber` | `#e6b75f` | Botões primários e destaques |
-| `--amber-deep` | `#a97928` | Hover dos botões e números |
+| `--amber` | `#fdbf01` | Botões primários e destaques (amarelo da logo) |
+| `--amber-deep` | `#946e00` | Hover dos botões e números |
 | `--white` | `#ffffff` | Fundo de cards e textos claros |
 
 ### Tipografia
@@ -124,9 +131,11 @@ Salve as imagens na pasta `assets/images/` e referencie no HTML assim:
 
 ### CSS
 
-- Edite **somente** `css/variables.css` para ajustar cores, fontes ou espaçamentos globais.
-- Edite `css/style.css` para modificar estilos de seções específicas.
-- Cada seção está separada por um comentário, por exemplo:
+- Edite `css/variables.css` para ajustar cores, fontes ou espaçamentos globais.
+- Edite o arquivo da seção correspondente (ex.: `css/hero.css`, `css/galeria.css`).
+- `css/main.css` concentra reset, estrutura, botões e responsividade global.
+- A ordem dos `<link>` no HTML importa: mantenha `variables.css` e `main.css` primeiro e os componentes na ordem das seções.
+- Cada arquivo tem um comentário indicando a seção, por exemplo:
 
 ```css
 /* ─────────────────────────────────────────

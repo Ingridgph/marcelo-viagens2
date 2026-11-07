@@ -240,15 +240,17 @@ if (carousel) {
 
     carousel.classList.toggle("is-stack", isMobile);
 
-    // No celular, mede a altura da foto da frente para posicionar
-    // a segunda foto e as setas logo abaixo dela.
+    // No celular, a altura real da foto vem da largura do slide + proporção
+    // definida no CSS (--stack-media-ratio). Medimos o item da frente para
+    // posicionar a segunda foto e o track exatamente na altura certa.
     if (isMobile) {
-      // altura das fotos = espaço da tela menos textos e bolinhas;
-      // as duas fotos ficam coladas (vão de --stack-gap)
       const gap = cssNumber(carousel, "--stack-gap", 6);
-      const reserved = 190; // textos + bolinhas + respiros
-      const available = viewportWithoutHeader() - reserved;
-      const photoHeight = Math.max(110, Math.floor((available - gap) / 2));
+      const frontItem = slides[current].querySelector(".gallery__item");
+      const measured = frontItem ? frontItem.offsetHeight : 0;
+      const photoHeight =
+        measured > 0
+          ? measured
+          : Math.max(110, Math.floor((viewportWithoutHeader() - gap) / 2));
       carousel.style.setProperty("--gallery-stack-height", `${photoHeight}px`);
     } else {
       carousel.style.removeProperty("--gallery-stack-height");
