@@ -352,9 +352,6 @@ if (servicesCarousel) {
     const first = activeGrp * PER_VIEW + 1;
     const last = Math.min(first + PER_VIEW - 1, cards.length);
     svcStatus.textContent = `Serviços ${first} a ${last} de ${cards.length}`;
-
-    const cardHeight = Math.min(165, Math.max(100, Math.floor((viewportWithoutHeader() - 230) / 3)));
-    servicesCarousel.style.setProperty("--service-card-height", `${cardHeight}px`);
   };
 
   const goSvc = (step) => {
