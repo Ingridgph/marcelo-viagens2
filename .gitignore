@@ -1,0 +1,5 @@
+# Arquivos-fonte que não fazem parte do site publicado
+_source/
+
+# Dependências locais
+node_modules/

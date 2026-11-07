@@ -40,9 +40,9 @@ marcelo-viagens/
 │   ├── hero.css            → Hero / seção inicial
 │   ├── servicos.css        → Serviços e carrossel de cards
 │   ├── galeria.css         → Galeria / carrossel de fotos
-│   ├── informacoes.css     → Seção "Sobre" / informações
-│   ├── contato.css         → Seção de contato
-│   └── footer.css          → Rodapé
+│   ├── informacoes.css     → Seção "Informações" (fundo creme e cards)
+│   ├── contato.css         → Seção de contato e formulário de orçamento
+│   └── footer.css          → Rodapé (contatos, WhatsApp e Instagram)
 │
 ├── js/
 │   └── script.js           → Interações e funcionalidades
@@ -109,21 +109,30 @@ Acesse `http://localhost:5500` no navegador.
 
 ## Como adicionar ou substituir imagens
 
-Salve as imagens na pasta `assets/images/` e referencie no HTML assim:
+Salve as imagens na pasta `assets/images/` e referencie no HTML. O site usa **AVIF + WebP** com fallback e `srcset` para servir a versão mais leve:
 
 ```html
-<!-- Hero -->
-<img src="assets/images/van-principal.jpg" alt="Van da Marcelo Viagens" />
-
-<!-- Galeria -->
-<img src="assets/images/destino-jalapao.jpg" alt="Jalapão, TO" />
-
-<!-- Sobre -->
-<img src="assets/images/sobre.jpg" alt="Marcelo, proprietário" />
+<picture>
+  <source
+    type="image/avif"
+    srcset="assets/images/foto-800.avif 800w, assets/images/foto-1280.avif 1280w"
+    sizes="(max-width: 767px) 92vw, 640px"
+  />
+  <img
+    src="assets/images/foto-1280.webp"
+    srcset="assets/images/foto-800.webp 800w, assets/images/foto-1280.webp 1280w"
+    sizes="(max-width: 767px) 92vw, 640px"
+    alt="Descrição da foto"
+    width="1280"
+    height="960"
+    loading="lazy"
+    decoding="async"
+  />
+</picture>
 ```
 
-**Formatos recomendados:** `.jpg` ou `.webp`  
-**Tamanho sugerido:** até 1200px de largura, comprimidas para web
+**Formatos recomendados:** `.avif` (principal) e `.webp` (fallback)
+**Tamanhos sugeridos:** 800px para o celular e 1280px para o desktop, comprimidos para web
 
 ---
 
@@ -161,8 +170,8 @@ Salve as imagens na pasta `assets/images/` e referencie no HTML assim:
 - [x] Seção de Serviços com cards
 - [x] Galeria de fotos
 - [x] Seção Sobre a empresa
-- [x] Seção de Contato com link para WhatsApp
-- [x] Footer com logotipo e copyright dinâmico
+- [x] Seção de Contato com formulário de orçamento que abre o WhatsApp
+- [x] Footer com contatos (telefone, WhatsApp e Instagram) e copyright dinâmico
 - [x] Menu mobile responsivo
 - [x] Formulário administrativo (`pages/formulario.html`)
 - [ ] Animações de entrada nas seções (scroll reveal)
@@ -174,9 +183,9 @@ Salve as imagens na pasta `assets/images/` e referencie no HTML assim:
 
 ## Observações
 
-> O número de WhatsApp no `index.html` e no `formulario.html` deve ser substituído pelo número real do Marcelo antes da publicação do site.
+> O número de WhatsApp (constante `WHATSAPP_NUMBER` em `js/script.js`), o telefone e o Instagram do footer estão com valores de exemplo e devem ser substituídos pelos dados reais antes da publicação.
 
-> Os placeholders de imagens na galeria e no hero devem ser substituídos por fotos reais da van e dos destinos.
+> As imagens do site usam AVIF/WebP otimizados. Originais fora do site ficam em `_source/` (ignorada pelo Git).
 
 ---
 
