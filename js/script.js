@@ -11,7 +11,8 @@ const cssNumber = (el, prop, fallback) => {
 };
 
 const viewportWithoutHeader = () =>
-  (window.innerHeight || 640) - cssNumber(document.documentElement, "--header-height", 70);
+  (window.innerHeight || 640) -
+  cssNumber(document.documentElement, "--header-height", 70);
 
 // ─── Hero: Efeito de digitação ──────────────────────────────
 const typingEl = document.getElementById("hero-typing");
@@ -21,12 +22,16 @@ if (typingEl) {
     "Transporte executivo e turismo",
     "Viagens saindo de Palmas - TO",
   ];
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
 
   if (reduceMotion) {
     typingEl.textContent = phrases[0];
   } else {
-    let pIdx = 0, cIdx = 0, deleting = false;
+    let pIdx = 0,
+      cIdx = 0,
+      deleting = false;
     const tick = () => {
       const phrase = phrases[pIdx];
       cIdx += deleting ? -1 : 1;
@@ -106,10 +111,16 @@ if (menuToggle && mainNav) {
     menuToggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
   });
 
-  mainNav.querySelectorAll("a").forEach((a) => a.addEventListener("click", closeMenu));
+  mainNav
+    .querySelectorAll("a")
+    .forEach((a) => a.addEventListener("click", closeMenu));
 
   document.addEventListener("click", (e) => {
-    if (mainNav.classList.contains("is-open") && header && !header.contains(e.target)) {
+    if (
+      mainNav.classList.contains("is-open") &&
+      header &&
+      !header.contains(e.target)
+    ) {
       closeMenu();
     }
   });
@@ -124,7 +135,8 @@ if (menuToggle && mainNav) {
   window.addEventListener(
     "resize",
     () => {
-      if (window.innerWidth > 768 && mainNav.classList.contains("is-open")) closeMenu();
+      if (window.innerWidth > 768 && mainNav.classList.contains("is-open"))
+        closeMenu();
     },
     { passive: true },
   );
@@ -180,7 +192,14 @@ if (carousel) {
 
     slides.forEach((slide, i) => {
       const diff = mod(i - current, total);
-      slide.classList.remove("is-center", "is-left", "is-right", "is-hidden", "is-stack-1", "is-stack-2");
+      slide.classList.remove(
+        "is-center",
+        "is-left",
+        "is-right",
+        "is-hidden",
+        "is-stack-1",
+        "is-stack-2",
+      );
 
       if (isMobile) {
         if (diff < 2) slide.classList.add(`is-stack-${diff + 1}`);
@@ -208,7 +227,9 @@ if (carousel) {
     if (isMobile) {
       const gap = cssNumber(carousel, "--stack-gap", 6);
       const frontItem = slides[current].querySelector(".gallery__item");
-      const h = frontItem?.offsetHeight || Math.max(110, Math.floor((viewportWithoutHeader() - gap) / 2));
+      const h =
+        frontItem?.offsetHeight ||
+        Math.max(110, Math.floor((viewportWithoutHeader() - gap) / 2));
       carousel.style.setProperty("--gallery-stack-height", `${h}px`);
     } else {
       carousel.style.removeProperty("--gallery-stack-height");
@@ -234,8 +255,16 @@ if (carousel) {
     }, 5000);
   };
 
-  if (prevBtn) prevBtn.addEventListener("click", () => { go(-1); restartAutoplay(); });
-  if (nextBtn) nextBtn.addEventListener("click", () => { go(1); restartAutoplay(); });
+  if (prevBtn)
+    prevBtn.addEventListener("click", () => {
+      go(-1);
+      restartAutoplay();
+    });
+  if (nextBtn)
+    nextBtn.addEventListener("click", () => {
+      go(1);
+      restartAutoplay();
+    });
 
   slides.forEach((slide, i) => {
     slide.addEventListener("click", () => {
@@ -248,8 +277,16 @@ if (carousel) {
   });
 
   carousel.addEventListener("keydown", (e) => {
-    if (e.key === "ArrowLeft") { e.preventDefault(); go(-1); restartAutoplay(); }
-    if (e.key === "ArrowRight") { e.preventDefault(); go(1); restartAutoplay(); }
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      go(-1);
+      restartAutoplay();
+    }
+    if (e.key === "ArrowRight") {
+      e.preventDefault();
+      go(1);
+      restartAutoplay();
+    }
   });
 
   carousel.addEventListener("mouseenter", stopAutoplay);
@@ -258,31 +295,47 @@ if (carousel) {
   carousel.addEventListener("focusout", restartAutoplay);
 
   // Suporte a swipe no mobile
-  let tX = null, tY = null;
-  carousel.addEventListener("touchstart", (e) => {
-    tX = e.touches[0].clientX;
-    tY = e.touches[0].clientY;
-  }, { passive: true });
-
-  carousel.addEventListener("touchend", (e) => {
-    if (tX === null) return;
-    const dx = e.changedTouches[0].clientX - tX;
-    const dy = e.changedTouches[0].clientY - (tY || 0);
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
-      go(dx < 0 ? 1 : -1);
-      restartAutoplay();
-    }
-    tX = null;
+  let tX = null,
     tY = null;
-  }, { passive: true });
+  carousel.addEventListener(
+    "touchstart",
+    (e) => {
+      tX = e.touches[0].clientX;
+      tY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
 
-  const onBp = () => { render(); restartAutoplay(); };
-  mobileQuery.addEventListener ? mobileQuery.addEventListener("change", onBp) : mobileQuery.addListener(onBp);
+  carousel.addEventListener(
+    "touchend",
+    (e) => {
+      if (tX === null) return;
+      const dx = e.changedTouches[0].clientX - tX;
+      const dy = e.changedTouches[0].clientY - (tY || 0);
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+        go(dx < 0 ? 1 : -1);
+        restartAutoplay();
+      }
+      tX = null;
+      tY = null;
+    },
+    { passive: true },
+  );
+
+  const onBp = () => {
+    render();
+    restartAutoplay();
+  };
+  mobileQuery.addEventListener
+    ? mobileQuery.addEventListener("change", onBp)
+    : mobileQuery.addListener(onBp);
 
   render();
   restartAutoplay();
 
-  const remeasure = () => { if (mobileQuery.matches) render(); };
+  const remeasure = () => {
+    if (mobileQuery.matches) render();
+  };
   window.addEventListener("load", remeasure);
   window.addEventListener("resize", remeasure, { passive: true });
 }
@@ -301,7 +354,8 @@ if (servicesCarousel) {
   svcStatus.className = "services__status";
   svcStatus.setAttribute("aria-live", "polite");
   svcStatus.setAttribute("aria-atomic", "true");
-  if (svcDotsWrap) svcDotsWrap.parentNode.insertBefore(svcStatus, svcDotsWrap.nextSibling);
+  if (svcDotsWrap)
+    svcDotsWrap.parentNode.insertBefore(svcStatus, svcDotsWrap.nextSibling);
 
   const modIdx = (n, len) => ((n % len) + len) % len;
   const groups = Math.ceil(cards.length / PER_VIEW);
@@ -352,6 +406,15 @@ if (servicesCarousel) {
     const first = activeGrp * PER_VIEW + 1;
     const last = Math.min(first + PER_VIEW - 1, cards.length);
     svcStatus.textContent = `Serviços ${first} a ${last} de ${cards.length}`;
+
+    const cardHeight = Math.min(
+      165,
+      Math.max(100, Math.floor((viewportWithoutHeader() - 230) / 3)),
+    );
+    servicesCarousel.style.setProperty(
+      "--service-card-height",
+      `${cardHeight}px`,
+    );
   };
 
   const goSvc = (step) => {
@@ -359,23 +422,38 @@ if (servicesCarousel) {
     renderSvc();
   };
 
-  let sTouchX = null, sTouchY = null;
-  servicesCarousel.addEventListener("touchstart", (e) => {
-    sTouchX = e.touches[0].clientX;
-    sTouchY = e.touches[0].clientY;
-  }, { passive: true });
-
-  servicesCarousel.addEventListener("touchend", (e) => {
-    if (sTouchX === null || !mobileSvc.matches) return;
-    const dx = e.changedTouches[0].clientX - sTouchX;
-    const dy = e.changedTouches[0].clientY - (sTouchY || 0);
-    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) goSvc(dx < 0 ? 1 : -1);
-    sTouchX = null;
+  let sTouchX = null,
     sTouchY = null;
-  }, { passive: true });
+  servicesCarousel.addEventListener(
+    "touchstart",
+    (e) => {
+      sTouchX = e.touches[0].clientX;
+      sTouchY = e.touches[0].clientY;
+    },
+    { passive: true },
+  );
 
-  const onSvcBp = () => { svcStart = 0; renderSvc(); };
-  mobileSvc.addEventListener ? mobileSvc.addEventListener("change", onSvcBp) : mobileSvc.addListener(onSvcBp);
+  servicesCarousel.addEventListener(
+    "touchend",
+    (e) => {
+      if (sTouchX === null || !mobileSvc.matches) return;
+      const dx = e.changedTouches[0].clientX - sTouchX;
+      const dy = e.changedTouches[0].clientY - (sTouchY || 0);
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy))
+        goSvc(dx < 0 ? 1 : -1);
+      sTouchX = null;
+      sTouchY = null;
+    },
+    { passive: true },
+  );
+
+  const onSvcBp = () => {
+    svcStart = 0;
+    renderSvc();
+  };
+  mobileSvc.addEventListener
+    ? mobileSvc.addEventListener("change", onSvcBp)
+    : mobileSvc.addListener(onSvcBp);
   window.addEventListener("resize", renderSvc, { passive: true });
 
   renderSvc();
