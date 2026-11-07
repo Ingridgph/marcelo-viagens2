@@ -1,0 +1,141 @@
+/* ============================================================
+   CONTATO.CSS — Marcelo Viagens
+   Seção de contato com formulário de orçamento via WhatsApp.
+   ============================================================ */
+
+/* ═══════════════════════════════════════
+   9. CONTATO
+═══════════════════════════════════════ */
+.contact {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+.contact__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-lg);
+}
+
+.contact__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  text-align: center;
+}
+
+.contact__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.contact__subtitle {
+  max-width: 520px;
+  font-size: var(--text-md);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.contact .section__label {
+  color: var(--amber);
+}
+
+/* ─── Formulário de orçamento ─── */
+.quote-form {
+  width: 100%;
+  max-width: 760px;
+  margin-inline: auto;
+  padding: var(--space-lg);
+  color: var(--ink);
+  text-align: left;
+  background-color: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.quote-form__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: var(--space-md);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: var(--space-sm);
+}
+
+.form-group--full {
+  grid-column: 1 / -1;
+}
+
+.quote-form label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.quote-form input,
+.quote-form select,
+.quote-form textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--ink);
+  background-color: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  outline: none;
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.quote-form input:focus,
+.quote-form select:focus,
+.quote-form textarea:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(253, 191, 1, 0.18);
+}
+
+.quote-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.quote-form__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  margin-top: var(--space-xs);
+}
+
+.quote-form__note {
+  margin-top: var(--space-sm);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  /* Contato */
+  .contact__inner {
+    gap: var(--space-md);
+  }
+
+  .quote-form {
+    padding: 1.25rem;
+  }
+
+  .quote-form__grid {
+    grid-template-columns: 1fr;
+  }
+}
