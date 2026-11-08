@@ -126,8 +126,8 @@
   .services--stack {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: var(--space-sm);
+    gap: 16px;
+    margin-top: 2rem;
     touch-action: pan-y;
   }
 
