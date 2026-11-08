@@ -347,8 +347,15 @@ if (servicesCarousel) {
   const cards = Array.from(servicesCarousel.querySelectorAll(".service-card"));
   const svcDotsWrap = document.querySelector(".services__dots");
   const mobileSvc = window.matchMedia("(max-width: 767px)");
+  const reduceMotionSvc = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  );
   const PER_VIEW = 3;
+  const AUTOPLAY_MS = 8000;
   let svcStart = 0;
+  let svcTimer = null;
+  let svcAnimating = false;
+  let svcInView = false;
 
   const svcStatus = document.createElement("p");
   svcStatus.className = "services__status";
@@ -367,10 +374,7 @@ if (servicesCarousel) {
       dot.type = "button";
       dot.className = "services__dot";
       dot.setAttribute("aria-label", `Ver grupo ${i + 1}`);
-      dot.addEventListener("click", () => {
-        svcStart = i * PER_VIEW;
-        renderSvc();
-      });
+      dot.addEventListener("click", () => swapSvc(i * PER_VIEW));
       svcDotsWrap.appendChild(dot);
       svcDots.push(dot);
     }
@@ -417,10 +421,70 @@ if (servicesCarousel) {
     );
   };
 
-  const goSvc = (step) => {
-    svcStart = modIdx(svcStart + step * PER_VIEW, cards.length);
+  const stopSvcAutoplay = () => {
+    if (svcTimer) {
+      clearTimeout(svcTimer);
+      svcTimer = null;
+    }
+  };
+
+  const canSvcAutoplay = () =>
+    groups > 1 &&
+    mobileSvc.matches &&
+    !reduceMotionSvc.matches &&
+    !document.hidden &&
+    svcInView &&
+    !svcAnimating;
+
+  const scheduleSvcAutoplay = () => {
+    stopSvcAutoplay();
+    if (!canSvcAutoplay()) return;
+    svcTimer = setTimeout(() => {
+      svcTimer = null;
+      swapSvc(svcStart + PER_VIEW, true);
+    }, AUTOPLAY_MS);
+  };
+
+  const applySvcStart = (index) => {
+    svcStart = modIdx(index, cards.length);
     renderSvc();
   };
+
+  const swapSvc = (index, animate = true) => {
+    if (svcAnimating) return;
+
+    const target = modIdx(index, cards.length);
+    if (target === svcStart) {
+      scheduleSvcAutoplay();
+      return;
+    }
+
+    if (!animate || !mobileSvc.matches || reduceMotionSvc.matches) {
+      applySvcStart(target);
+      scheduleSvcAutoplay();
+      return;
+    }
+
+    svcAnimating = true;
+    stopSvcAutoplay();
+    servicesCarousel.classList.add("is-svc-leaving");
+
+    window.setTimeout(() => {
+      applySvcStart(target);
+      servicesCarousel.classList.remove("is-svc-leaving");
+      servicesCarousel.classList.add("is-svc-entering");
+      void servicesCarousel.offsetWidth;
+      window.requestAnimationFrame(() => {
+        servicesCarousel.classList.remove("is-svc-entering");
+        window.setTimeout(() => {
+          svcAnimating = false;
+          scheduleSvcAutoplay();
+        }, 420);
+      });
+    }, 420);
+  };
+
+  const goSvc = (step) => swapSvc(svcStart + step * PER_VIEW);
 
   let sTouchX = null,
     sTouchY = null;
@@ -429,6 +493,7 @@ if (servicesCarousel) {
     (e) => {
       sTouchX = e.touches[0].clientX;
       sTouchY = e.touches[0].clientY;
+      stopSvcAutoplay();
     },
     { passive: true },
   );
@@ -439,8 +504,11 @@ if (servicesCarousel) {
       if (sTouchX === null || !mobileSvc.matches) return;
       const dx = e.changedTouches[0].clientX - sTouchX;
       const dy = e.changedTouches[0].clientY - (sTouchY || 0);
-      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy))
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
         goSvc(dx < 0 ? 1 : -1);
+      } else {
+        scheduleSvcAutoplay();
+      }
       sTouchX = null;
       sTouchY = null;
     },
@@ -448,13 +516,43 @@ if (servicesCarousel) {
   );
 
   const onSvcBp = () => {
+    svcAnimating = false;
+    servicesCarousel.classList.remove("is-svc-leaving", "is-svc-entering");
     svcStart = 0;
     renderSvc();
+    stopSvcAutoplay();
+    scheduleSvcAutoplay();
   };
   mobileSvc.addEventListener
     ? mobileSvc.addEventListener("change", onSvcBp)
     : mobileSvc.addListener(onSvcBp);
+  reduceMotionSvc.addEventListener
+    ? reduceMotionSvc.addEventListener("change", scheduleSvcAutoplay)
+    : reduceMotionSvc.addListener(scheduleSvcAutoplay);
   window.addEventListener("resize", renderSvc, { passive: true });
 
+  // Pausa enquanto o usuário interage com a seção
+  servicesCarousel.addEventListener("focusin", stopSvcAutoplay);
+  servicesCarousel.addEventListener("focusout", scheduleSvcAutoplay);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopSvcAutoplay();
+    else scheduleSvcAutoplay();
+  });
+
+  // Só roda quando a seção está visível na tela
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(
+      (entries) => {
+        svcInView = entries.some((entry) => entry.isIntersecting);
+        if (svcInView) scheduleSvcAutoplay();
+        else stopSvcAutoplay();
+      },
+      { threshold: 0.35 },
+    ).observe(servicesCarousel);
+  } else {
+    svcInView = true;
+  }
+
   renderSvc();
+  scheduleSvcAutoplay();
 }
