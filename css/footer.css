@@ -47,6 +47,14 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
+/* Linha de saída, em parágrafo próprio abaixo da tagline */
+.footer__route {
+  max-width: 320px;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+
 .footer__contact {
   display: flex;
   flex-direction: column;
