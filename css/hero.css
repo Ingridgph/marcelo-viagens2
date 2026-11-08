@@ -137,13 +137,13 @@
   }
   .hero__inner {
     align-items: flex-start;
-    padding-block-start: var(--space-2xl);
+    padding-block-start: var(--space-xl);
   }
   .hero__content {
     align-items: flex-start;
     gap: var(--space-sm);
     max-width: 100%;
-    padding-block-start: 3rem;
+    padding-block-start: 1.5rem;
     padding-inline-start: var(--space-md);
     text-align: left;
   }
@@ -157,7 +157,7 @@
 
 @media (max-width: 480px) {
   .hero__inner {
-    padding-block-start: var(--space-2xl);
+    padding-block-start: var(--space-lg);
   }
   .hero__actions {
     flex-direction: column;
