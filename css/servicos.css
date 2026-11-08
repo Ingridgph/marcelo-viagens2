@@ -126,8 +126,8 @@
   .services--stack {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: var(--space-sm);
+    gap: 16px;
+    margin-top: 2rem;
     touch-action: pan-y;
   }
 
@@ -141,7 +141,18 @@
     margin: 0;
     padding: 0.85rem 1rem;
     overflow: visible;
-    transition: opacity 0.3s ease;
+    transition:
+      opacity 0.28s ease,
+      transform 0.28s ease;
+    will-change: opacity, transform;
+  }
+
+  /* Escalonamento suave entre os cards do mesmo grupo */
+  .services--stack .service-card.is-svc-2 {
+    transition-delay: 0.06s;
+  }
+  .services--stack .service-card.is-svc-3 {
+    transition-delay: 0.12s;
   }
 
   .services--stack .service-card:hover {
@@ -185,8 +196,28 @@
     display: none;
   }
 
+  /* Troca automática entre os grupos (desliza lateral + fade) */
+  .services--stack.is-svc-leaving .service-card.is-svc-1,
+  .services--stack.is-svc-leaving .service-card.is-svc-2,
+  .services--stack.is-svc-leaving .service-card.is-svc-3 {
+    opacity: 0;
+    transform: translateX(-26px);
+  }
+
+  .services--stack.is-svc-entering .service-card:not(.is-svc-hidden) {
+    opacity: 0;
+    transform: translateX(26px);
+    transition: none;
+  }
+
   .services__dots {
     display: flex;
     margin-top: var(--space-sm);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .services--stack .service-card {
+    transition: none;
   }
 }

@@ -47,6 +47,37 @@
   color: rgba(255, 255, 255, 0.55);
 }
 
+/* Linha de saída, em parágrafo próprio abaixo da tagline */
+.footer__route {
+  max-width: 320px;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Selos ANTT e Cadastur, pequenos, abaixo da linha de saída */
+.footer__seals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.footer__seal {
+  height: 88px;
+  width: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
+/* Selos maiores no desktop */
+@media (min-width: 769px) {
+  .footer__seal {
+    height: 120px;
+  }
+}
+
 .footer__contact {
   display: flex;
   flex-direction: column;

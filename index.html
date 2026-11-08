@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="css/main.css?v=55" />
     <link rel="stylesheet" href="css/nav.css?v=55" />
     <link rel="stylesheet" href="css/hero.css?v=60" />
-    <link rel="stylesheet" href="css/servicos.css?v=55" />
+    <link rel="stylesheet" href="css/servicos.css?v=62" />
     <link rel="stylesheet" href="css/galeria.css?v=57" />
     <link rel="stylesheet" href="css/informacoes.css?v=59" />
     <link rel="stylesheet" href="css/contato.css?v=56" />
-    <link rel="stylesheet" href="css/footer.css?v=56" />
+    <link rel="stylesheet" href="css/footer.css?v=62" />
   </head>
   <body>
     <!-- HEADER -->
@@ -53,8 +53,8 @@
       <!-- HERO -->
       <section class="hero" id="inicio" aria-labelledby="hero-title">
         <picture>
-          <source media="(max-width: 768px)" srcset="assets/images/tela-home-mobile.webp" />
-          <img class="hero__bg" src="assets/images/tela-home-desktop.webp" alt="" width="1319" height="795" fetchpriority="high" decoding="async" />
+          <source media="(max-width: 768px)" srcset="assets/images/tela-home-mobile.jpg" />
+          <img class="hero__bg" src="assets/images/tela-home-desktop.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
         </picture>
 
         <div class="container hero__inner">
@@ -177,7 +177,7 @@
               </li>
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/espaco-traseiro.jpg" alt="Espaço traseiro da van com bagageiro" width="720" height="796" loading="lazy" decoding="async" />
+                  <img src="assets/images/espaco-traseiro.jpg" alt="Espaço traseiro da van com bagageiro" width="693" height="766" loading="lazy" decoding="async" />
                 </figure>
               </li>
             </ul>
@@ -203,18 +203,10 @@
           <div class="info__grid">
             <article class="info-card">
               <span class="info-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
               </span>
-              <h3 class="info-card__title">Capacidade e bagagem</h3>
-              <p class="info-card__text">Até 15 passageiros. Para viagens longas, recomendamos até 13.</p>
-            </article>
-
-            <article class="info-card">
-              <span class="info-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              </span>
-              <h3 class="info-card__title">Regiões atendidas</h3>
-              <p class="info-card__text">Palmas, Araguaína, Gurupi, Bico do Papagaio e Jalapão.</p>
+              <h3 class="info-card__title">Reservas</h3>
+              <p class="info-card__text">Solicite seu orçamento.</p>
             </article>
 
             <article class="info-card">
@@ -222,15 +214,23 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>
               </span>
               <h3 class="info-card__title">Segurança</h3>
-              <p class="info-card__text">ANTT, Cadastur, seguro de passageiros e manutenção preventiva.</p>
+              <p class="info-card__text">Autorizado ANTT, CADASTUR e ATR. Serviço MONITRIP (ANTT).</p>
             </article>
 
             <article class="info-card">
               <span class="info-card__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
               </span>
-              <h3 class="info-card__title">Reservas</h3>
-              <p class="info-card__text">Solicite seu orçamento com pelo menos 3 dias de antecedência.</p>
+              <h3 class="info-card__title">Capacidade e bagagem</h3>
+              <p class="info-card__text">Até 15 passageiros para viagens curtas. Para viagens longas, até 13. Bagagem até 10 kg/passageiro.</p>
+            </article>
+
+            <article class="info-card">
+              <span class="info-card__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <h3 class="info-card__title">Regiões atendidas</h3>
+              <p class="info-card__text">Palmas, Araguaína, Gurupi e principais pontos turísticos do Estado.</p>
             </article>
           </div>
 
@@ -332,7 +332,12 @@
             <a href="#inicio" class="footer__logo-link" aria-label="Norteclass Turismo — Início">
               <img src="assets/images/norteclass-logo.png" alt="Norteclass Turismo" class="footer__logo-img" width="175" height="88" />
             </a>
-            <p class="footer__tagline">Transporte executivo, turismo e fretamento com alto padrão de conforto, pontualidade e segurança. Saídas de Palmas - TO para todo o Brasil.</p>
+            <p class="footer__tagline">Transporte executivo, turismo e fretamento com alto padrão de conforto, pontualidade e segurança.</p>
+            <p class="footer__route">Saídas de Palmas - TO para todo o Brasil.</p>
+            <div class="footer__seals">
+              <img class="footer__seal" src="assets/images/antt.webp" alt="Selo ANTT" width="610" height="502" loading="lazy" decoding="async" />
+              <img class="footer__seal" src="assets/images/cadastur.webp" alt="Selo Cadastur" width="429" height="594" loading="lazy" decoding="async" />
+            </div>
           </div>
 
           <ul class="footer__contact">
@@ -361,6 +366,6 @@
       </div>
     </footer>
 
-    <script src="js/script.js?v=53"></script>
+    <script src="js/script.js?v=63"></script>
   </body>
 </html>
