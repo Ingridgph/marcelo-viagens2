@@ -55,6 +55,22 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
+/* Selos ANTT e Cadastur, pequenos, abaixo da linha de saída */
+.footer__seals {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+}
+
+.footer__seal {
+  height: 44px;
+  width: auto;
+  border-radius: 6px;
+  object-fit: contain;
+}
+
 .footer__contact {
   display: flex;
   flex-direction: column;
