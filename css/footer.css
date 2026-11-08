@@ -71,6 +71,13 @@
   object-fit: contain;
 }
 
+/* Selos maiores no desktop */
+@media (min-width: 769px) {
+  .footer__seal {
+    height: 120px;
+  }
+}
+
 .footer__contact {
   display: flex;
   flex-direction: column;
