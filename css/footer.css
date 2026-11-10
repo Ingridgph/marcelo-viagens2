@@ -55,7 +55,7 @@
   color: rgba(255, 255, 255, 0.72);
 }
 
-/* Selos ANTT e Cadastur, pequenos, abaixo da linha de saída */
+/* Selos ANTT, Cadastur e RETPP, pequenos, abaixo da linha de saída */
 .footer__seals {
   display: flex;
   flex-wrap: wrap;
