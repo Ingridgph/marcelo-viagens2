@@ -187,6 +187,8 @@ Salve as imagens na pasta `assets/images/` e referencie no HTML. O site usa **AV
 
 > As imagens do site usam AVIF/WebP otimizados. Originais fora do site ficam em `_source/` (ignorada pelo Git).
 
+> **Imagens em `assets/images/`:** cada foto do hero e da galeria tem variantes `-400`, `-640` e `-960` (AVIF + WebP) usadas em `srcset`. Ao trocar uma foto, gere novamente as variantes nos mesmos tamanhos e atualize os nomes no `index.html`; não aponte o HTML para o arquivo original (ele é grande e não é responsivo).
+
 ---
 
 *Desenvolvido com HTML5, CSS3 e JavaScript puro.*
