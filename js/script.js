@@ -18,7 +18,7 @@ const viewportWithoutHeader = () =>
 const typingEl = document.getElementById("hero-typing");
 if (typingEl) {
   const phrases = [
-    "Viagem com conforto",
+    "Viaje com conforto",
     "Transporte executivo e turismo",
     "Viagens saindo de Palmas - TO",
   ];
