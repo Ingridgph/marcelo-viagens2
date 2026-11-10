@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="css/variables.css?v=55" />
     <link rel="stylesheet" href="css/main.css?v=55" />
     <link rel="stylesheet" href="css/nav.css?v=55" />
-    <link rel="stylesheet" href="css/hero.css?v=60" />
+    <link rel="stylesheet" href="css/hero.css?v=61" />
     <link rel="stylesheet" href="css/servicos.css?v=62" />
-    <link rel="stylesheet" href="css/galeria.css?v=57" />
+    <link rel="stylesheet" href="css/galeria.css?v=58" />
     <link rel="stylesheet" href="css/informacoes.css?v=59" />
-    <link rel="stylesheet" href="css/contato.css?v=56" />
-    <link rel="stylesheet" href="css/footer.css?v=62" />
+    <link rel="stylesheet" href="css/contato.css?v=57" />
+    <link rel="stylesheet" href="css/footer.css?v=64" />
   </head>
   <body>
     <!-- HEADER -->
@@ -53,8 +53,10 @@
       <!-- HERO -->
       <section class="hero" id="inicio" aria-labelledby="hero-title">
         <picture>
-          <source media="(max-width: 768px)" srcset="assets/images/tela-home-mobile.jpg" />
-          <img class="hero__bg" src="assets/images/tela-home-desktop.webp" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
+          <source media="(max-width: 768px)" type="image/avif" srcset="assets/images/hero-mobile-480.avif 480w, assets/images/hero-mobile-783.avif 783w" sizes="100vw" />
+          <source media="(max-width: 768px)" type="image/webp" srcset="assets/images/hero-mobile-480.webp 480w, assets/images/hero-mobile-783.webp 783w" sizes="100vw" />
+          <source type="image/avif" srcset="assets/images/hero-desktop-1200.avif 1200w, assets/images/hero-desktop-1672.avif 1672w" sizes="100vw" />
+          <img class="hero__bg" src="assets/images/hero-desktop-1672.webp" srcset="assets/images/hero-desktop-1200.webp 1200w, assets/images/hero-desktop-1672.webp 1672w" sizes="100vw" alt="" width="1672" height="941" fetchpriority="high" decoding="async" />
         </picture>
 
         <div class="container hero__inner">
@@ -147,37 +149,58 @@
             <ul class="gallery__track">
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/van-lateral.jpeg" alt="Lateral da van executiva" width="1043" height="900" loading="lazy" decoding="async" />
+                  <picture>
+                    <source type="image/avif" srcset="assets/images/van-lateral-400.avif 400w, assets/images/van-lateral-640.avif 640w, assets/images/van-lateral-960.avif 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" />
+                    <img src="assets/images/van-lateral-640.webp" srcset="assets/images/van-lateral-400.webp 400w, assets/images/van-lateral-640.webp 640w, assets/images/van-lateral-960.webp 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" alt="Lateral da van executiva" width="1043" height="900" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
               </li>
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/interior-bancos.jpg" alt="Bancos reclináveis no interior da van" width="1200" height="1200" loading="lazy" decoding="async" />
+                  <picture>
+                    <source type="image/avif" srcset="assets/images/interior-bancos-400.avif 400w, assets/images/interior-bancos-640.avif 640w, assets/images/interior-bancos-960.avif 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" />
+                    <img src="assets/images/interior-bancos-640.webp" srcset="assets/images/interior-bancos-400.webp 400w, assets/images/interior-bancos-640.webp 640w, assets/images/interior-bancos-960.webp 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" alt="Bancos reclináveis no interior da van" width="1200" height="1200" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
               </li>
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/pasageiros.jpeg" alt="Passageiros aproveitando a viagem no interior da van" width="1200" height="1200" loading="lazy" decoding="async" />
+                  <picture>
+                    <source type="image/avif" srcset="assets/images/pasageiros-400.avif 400w, assets/images/pasageiros-640.avif 640w, assets/images/pasageiros-960.avif 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" />
+                    <img src="assets/images/pasageiros-640.webp" srcset="assets/images/pasageiros-400.webp 400w, assets/images/pasageiros-640.webp 640w, assets/images/pasageiros-960.webp 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" alt="Passageiros aproveitando a viagem no interior da van" width="1200" height="1200" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
               </li>
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/interior-degraus.jpg" alt="Degraus de acesso e piso do interior da van" width="1347" height="1347" loading="lazy" decoding="async" />
+                  <picture>
+                    <source type="image/avif" srcset="assets/images/interior-degraus-400.avif 400w, assets/images/interior-degraus-640.avif 640w, assets/images/interior-degraus-960.avif 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" />
+                    <img src="assets/images/interior-degraus-640.webp" srcset="assets/images/interior-degraus-400.webp 400w, assets/images/interior-degraus-640.webp 640w, assets/images/interior-degraus-960.webp 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" alt="Degraus de acesso e piso do interior da van" width="1347" height="1347" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
               </li>
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/interior-iluminacao.jpg" alt="Iluminação interna em LED da van" width="960" height="990" loading="lazy" decoding="async" />
+                  <picture>
+                    <source type="image/avif" srcset="assets/images/interior-iluminacao-400.avif 400w, assets/images/interior-iluminacao-640.avif 640w, assets/images/interior-iluminacao-960.avif 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" />
+                    <img src="assets/images/interior-iluminacao-640.webp" srcset="assets/images/interior-iluminacao-400.webp 400w, assets/images/interior-iluminacao-640.webp 640w, assets/images/interior-iluminacao-960.webp 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" alt="Iluminação interna em LED da van" width="960" height="990" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
               </li>
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/passageiros.jpeg" alt="Passageiros descansando nos bancos reclináveis durante a viagem" width="1283" height="1200" loading="lazy" decoding="async" />
+                  <picture>
+                    <source type="image/avif" srcset="assets/images/passageiros-400.avif 400w, assets/images/passageiros-640.avif 640w, assets/images/passageiros-960.avif 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" />
+                    <img src="assets/images/passageiros-640.webp" srcset="assets/images/passageiros-400.webp 400w, assets/images/passageiros-640.webp 640w, assets/images/passageiros-960.webp 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" alt="Passageiros descansando nos bancos reclináveis durante a viagem" width="1283" height="1200" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
               </li>
               <li class="gallery__slide">
                 <figure class="gallery__item">
-                  <img src="assets/images/espaco-traseiro.jpg" alt="Espaço traseiro da van com bagageiro" width="693" height="766" loading="lazy" decoding="async" />
+                  <picture>
+                    <source type="image/avif" srcset="assets/images/espaco-traseiro-400.avif 400w, assets/images/espaco-traseiro-640.avif 640w, assets/images/espaco-traseiro-960.avif 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" />
+                    <img src="assets/images/espaco-traseiro-640.webp" srcset="assets/images/espaco-traseiro-400.webp 400w, assets/images/espaco-traseiro-640.webp 640w, assets/images/espaco-traseiro-960.webp 960w" sizes="(max-width: 480px) 74vw, (max-width: 768px) 92vw, 640px" alt="Espaço traseiro da van com bagageiro" width="693" height="766" loading="lazy" decoding="async" />
+                  </picture>
                 </figure>
               </li>
             </ul>
@@ -337,18 +360,19 @@
             <div class="footer__seals">
               <img class="footer__seal" src="assets/images/antt.webp" alt="Selo ANTT" width="610" height="502" loading="lazy" decoding="async" />
               <img class="footer__seal" src="assets/images/cadastur.webp" alt="Selo Cadastur" width="429" height="594" loading="lazy" decoding="async" />
+              <img class="footer__seal" src="assets/images/registro-640.webp" alt="Registro Estadual de Transporte Público de Passageiros (RETPP) — TPF-086" width="1220" height="699" loading="lazy" decoding="async" />
             </div>
           </div>
 
           <ul class="footer__contact">
             <li>
-              <a class="footer__link" href="tel:+5563999999999">
+              <a class="footer__link" href="tel:+5563984994859">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-                (63) 99999-9999
+                (63) 98499-4859
               </a>
             </li>
             <li>
-              <a class="footer__link" href="https://wa.me/5563999999999" target="_blank" rel="noopener noreferrer">
+              <a class="footer__link" href="https://wa.me/5563984994859" target="_blank" rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.2 8.2 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06 0 1.22.89 2.39 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
                 WhatsApp
               </a>
@@ -366,6 +390,6 @@
       </div>
     </footer>
 
-    <script src="js/script.js?v=63"></script>
+    <script src="js/script.js?v=65"></script>
   </body>
 </html>

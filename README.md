@@ -177,15 +177,17 @@ Salve as imagens na pasta `assets/images/` e referencie no HTML. O site usa **AV
 - [ ] Animações de entrada nas seções (scroll reveal)
 - [ ] Lightbox para galeria de fotos
 - [ ] Seção de depoimentos de clientes
-- [ ] Integração do link WhatsApp com número real
+- [x] Integração do link WhatsApp com número real
 
 ---
 
 ## Observações
 
-> O número de WhatsApp (constante `WHATSAPP_NUMBER` em `js/script.js`), o telefone e o Instagram do footer estão com valores de exemplo e devem ser substituídos pelos dados reais antes da publicação.
+> Contatos já publicados: WhatsApp/telefone (63) 98499-4859 (constante `WHATSAPP_NUMBER` em `js/script.js`) e Instagram [@norteclassturismo](https://www.instagram.com/norteclassturismo/).
 
 > As imagens do site usam AVIF/WebP otimizados. Originais fora do site ficam em `_source/` (ignorada pelo Git).
+
+> **Imagens em `assets/images/`:** cada foto do hero e da galeria tem variantes `-400`, `-640` e `-960` (AVIF + WebP) usadas em `srcset`. Ao trocar uma foto, gere novamente as variantes nos mesmos tamanhos e atualize os nomes no `index.html`; não aponte o HTML para o arquivo original (ele é grande e não é responsivo).
 
 ---
 

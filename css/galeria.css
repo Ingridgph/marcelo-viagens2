@@ -41,10 +41,15 @@
   max-height: var(--gallery-media-max-height, 480px);
   margin: 0;
   overflow: hidden;
-  background-color: var(--line);
+  background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-sm);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.gallery__item picture {
+  display: block;
+  height: 100%;
 }
 
 .gallery__item img {

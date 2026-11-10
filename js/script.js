@@ -18,7 +18,7 @@ const viewportWithoutHeader = () =>
 const typingEl = document.getElementById("hero-typing");
 if (typingEl) {
   const phrases = [
-    "Viagem com conforto",
+    "Viaje com conforto",
     "Transporte executivo e turismo",
     "Viagens saindo de Palmas - TO",
   ];
@@ -57,7 +57,7 @@ const footerYear = document.getElementById("footer-year");
 if (footerYear) footerYear.textContent = new Date().getFullYear();
 
 // ─── Formulário de orçamento → WhatsApp ─────────────────────
-const WHATSAPP_NUMBER = "5563999999999";
+const WHATSAPP_NUMBER = "5563984994859";
 const quoteForm = document.getElementById("quote-form");
 
 if (quoteForm) {
