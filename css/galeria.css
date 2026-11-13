@@ -59,6 +59,11 @@
   object-position: center;
 }
 
+/* Fotos em retrato cujo assunto fica na parte de baixo */
+.gallery__slide--bottom img {
+  object-position: center bottom;
+}
+
 /* Posições — central à frente, vizinhas recuadas */
 .gallery__slide.is-center {
   z-index: 3;
